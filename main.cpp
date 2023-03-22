@@ -25,18 +25,13 @@ void filterOriginal(vector<int> &arr, int deflected) {
 // фильтрация. По заданию, нельзя создавать доп.структуры и для удаления использовать только метод pop_back()
 // в задании нет критерия, чтобы в итоговом массиве числа выводились в первоначальном порядке
 void filterOriginal2(vector<int> &arr, int deflected) {
-    int occurCount = (int)std::count(arr.cbegin(), arr.cend(), deflected);
-    int position = (int) (arr.size() - 1);
-
-    while (occurCount > 0) {
-        if (arr[position] == deflected) {
-            arr.pop_back();
-            --position;
+    while (int occurCount = (int)std::count(arr.cbegin(), arr.cend(), deflected) > 0) {
+        if (arr.back() == deflected) {
             --occurCount;
         } else {
             arr.insert(arr.cbegin(), arr.back());
-            arr.pop_back();
         }
+        arr.pop_back();
     }
 }
 
@@ -60,7 +55,8 @@ int main() {
     cout << "Enter the number to be removed from the list:";
     std::cin >> deflected;
 
-    filterOriginal(list, deflected);
+    // filterOriginal(list, deflected);
+    filterOriginal2(list, deflected);
 
     printReport(list, "Report");
 }
