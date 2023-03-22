@@ -2,15 +2,13 @@
 #include <algorithm> // count
 #include <vector>
 
-using std::cout;
-using std::endl;
 using std::vector;
 
 // Информационный отчет
 void printReport(vector<int> &arr, const std::string &title = "Report") {
-    cout << "-----------\n" << title << ": ";
-    for (auto &item: arr) cout << item << " ";
-    cout << "\n-----------" << endl;
+    std::cout << "-----------\n" << title << ": ";
+    for (auto &item: arr) std::cout << item << " ";
+    std::cout << "\n-----------" << std::endl;
 }
 
 // фильтрация посредством удаления методом erase
@@ -40,19 +38,19 @@ int main() {
     int deflected = 0;
     int listSize = 0;
 
-    cout << "Enter size of list:";
+    std::cout << "Enter size of list:";
     std::cin >> listSize;
 
     for (int i = 0; i < listSize; ++i) {
         int currentValue = 0;
-        cout << "Enter " << (i + 1) << " value:";
+        std::cout << "Enter " << (i + 1) << " value:";
         std::cin >> currentValue;
         list.push_back(currentValue);
     }
 
     printReport(list, "List");
 
-    cout << "Enter the number to be removed from the list:";
+    std::cout << "Enter the number to be removed from the list:";
     std::cin >> deflected;
 
     // filterOriginal(list, deflected);
